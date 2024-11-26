@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:primeiroapp/screens/home/home_screen.dart';
-import 'package:primeiroapp/screens/home/home_screen2.dart';
+import 'package:primeiroapp/screens/register/register_screen.dart';
+import 'package:primeiroapp/screens/task/task_screen.dart';
 import 'screens/auth/login_screen.dart';
 import 'src/settings/settings_controller.dart';
 import 'src/settings/settings_service.dart';
+
 
 void main() async {
   // Inicializa o SettingsController e carrega as configurações do usuário
@@ -33,7 +35,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => LoginScreen(),
         '/home': (context) => HomeScreen(),
-        '/home2': (context) => HomeScreen2(),
+        '/register': (context) => RegisterScreen(),
+        '/task': (context) => TaskScreen(),
       },
     );
   }

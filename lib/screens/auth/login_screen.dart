@@ -57,6 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 const Text(
                   "Bem-vindo ao Sistema!",
                   style: TextStyle(
+                    color: Colors.white,
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
@@ -68,24 +69,97 @@ class _LoginScreenState extends State<LoginScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+                    // Campo de email com ícone
                     TextField(
                       controller: _emailController,
                       keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(labelText: "E-mail"),
+                      decoration: InputDecoration(
+                        labelText: "E-mail",
+                        prefixIcon: const Icon(
+                          Icons.email,
+                          color: Colors.white,
+                        ),
+                        filled: true,
+                        fillColor: Colors.black54,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                      style: const TextStyle(color: Colors.white),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
+
+                    // Campo de senha com ícone
                     TextField(
                       controller: _passwordController,
                       obscureText: true,
-                      decoration: InputDecoration(labelText: "Senha"),
+                      decoration: InputDecoration(
+                        labelText: "Senha",
+                        prefixIcon: const Icon(
+                          Icons.lock,
+                          color: Colors.white,
+                        ),
+                        filled: true,
+                        fillColor: Colors.black54,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                      style: const TextStyle(color: Colors.white),
                     ),
-                    SizedBox(height: 32),
+                    // Link para "Esqueceu sua senha?"
+                    TextButton(
+                      onPressed: () {
+                        // Aqui você pode adicionar a navegação para a tela de recuperação de senha
+                      },
+                      child: Text("Esqueceu sua senha?", style: TextStyle(color: Colors.blue)),
+                    ),
+                    const SizedBox(height: 16),
+
+                    // Botão de login
                     ElevatedButton(
                       onPressed: _login,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green, // Define a cor de fundo para verde
                       ),
-                      child: Text("Entrar", style: TextStyle(color: Colors.black)),
+                      child: const Text("Entrar", style: TextStyle(color: Colors.black)),
+                    ),
+                    const SizedBox(height: 16),
+
+                    // Palavra "ou"
+                    const Center(child: Text("ou", style: TextStyle(fontSize: 16, color: Colors.white))),
+                    const SizedBox(height: 16),
+
+                    // Botão "Entrar com o Google" com ícone
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        // Aqui você pode adicionar a lógica de login com o Google
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 221, 231, 240), // Cor de fundo para o botão do Google
+                      ),
+                      icon: const Icon(
+                        Icons.g_mobiledata, // Ícone do Google
+                        color: Colors.white,
+                      ),
+                      label: const Text(
+                        "Entrar com o Google",
+                        style: TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 16),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+
+                    // Link para cadastro
+                    Center(
+                      child: TextButton(
+                        onPressed: () {
+                          // Aqui você pode adicionar a navegação para a tela de cadastro
+                          Navigator.pushNamed(context, '/register');
+                        },
+                        child: const Text("Ainda não tem cadastro? Cadastre-se", style: TextStyle(color: Colors.blue)),
+                      ),
                     ),
                   ],
                 ),

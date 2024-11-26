@@ -22,10 +22,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 32),
-                // Botões principais centralizados
+                // Corpo principal com os botões
                 Expanded(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.end, // Alinha os itens ao fundo
                     children: [
                       // Botão "Ficha de treino"
                       _buildMenuButton(
@@ -69,25 +69,36 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+                      const SizedBox(height: 16),
+                      // Botão "Tarefas"
+                      _buildMenuButton(
+                        icon: Icons.task_alt,
+                        label: "Tarefas e lembretes",
+                        onTap: () {
+                          // Navegar para a tela de tarefas
+                          Navigator.pushNamed(context, '/task');
+                        },
+                      ),
+                      const SizedBox(height: 20),
+                      // Botão "Sair"
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/login'); // Voltar à tela de login
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          foregroundColor: Colors.black,
+                          padding: const EdgeInsets.symmetric(vertical: 36, horizontal: 160),
+                        ),
+                        child: const Text(
+                          "Sair",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ],
-                  ),
-                ),
-                // Botão "Sair"
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context); // Voltar à tela de login
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: Colors.black,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                  ),
-                  child: const Text(
-                    "Sair",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
                   ),
                 ),
               ],
@@ -132,7 +143,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                   child: const Icon(
                     Icons.menu,
-                    color: Colors.lime,
+                    color: Color.fromARGB(255, 255, 102, 0),
                     size: 32,
                   ),
                 ),
