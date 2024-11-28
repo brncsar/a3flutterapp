@@ -25,11 +25,19 @@ class BotaoVoltar extends StatelessWidget {
               Navigator.of(context).pop();
             }
           },
-      icon: Icon(icon),
-      label: Text(label),
+      icon: Icon(
+        icon,
+        color: Colors.white, // Cor do ícone (seta) em branco
+      ),
+      label: Text(
+        label,
+        style: const TextStyle(
+          color: Colors.white, // Cor do texto em branco
+        ),
+      ),
       style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.lime, // Cor de fundo verde
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        textStyle: const TextStyle(fontSize: 16),
       ),
     );
   }
